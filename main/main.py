@@ -44,14 +44,14 @@ def animate_gif(label, image_path):
                 index = 0
                 is_animating = True
         if is_animating:
-            label.after(35, lambda: animation(index))
+            label.after(45, lambda: animation(index))
 
     animation(index=index)
 
 def update_label():
     global is_animating
     if not is_animating:
-        image_path = "sprites/" + os.listdir('sprites')[random.randint(0, len(os.listdir('sprites')) - 1)]
+        image_path = "main/sprites/" + os.listdir('main/sprites')[random.randint(0, len(os.listdir('main/sprites')) - 1)]
         print("New image path:", image_path)
         animate_gif(label, image_path)
     else:
@@ -64,7 +64,7 @@ label = tk.Label(root, bg='black')
 label.pack()
 
 print('loading first one')
-animate_gif(label, 'sprites/' + os.listdir('sprites')[0])
+animate_gif(label, 'main/sprites/' + os.listdir('main/sprites')[0])
 print('starting update')
 update_label()
 print('starting loop')
